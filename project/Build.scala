@@ -18,11 +18,12 @@ object Build extends sbt.Build{
         "spray nightly"      at "http://nightlies.spray.io/"
       ),
       libraryDependencies ++= Seq(
-        "io.spray"            %   "spray-can"     % "1.2-RC3",
+        "io.spray"            %   "spray-can"     % "1.2.0",
         "com.typesafe.akka"   %%  "akka-actor"    % "2.2.3",
         "com.typesafe.akka"   %%  "akka-testkit"  % "2.2.3" % "test",
         "org.scalatest"       % "scalatest_2.10" % "2.0" % "test"
-      )
+      ),
+	  publishTo := Some(Resolver.file("file",  new File(Path.userHome.absolutePath+"/.m2/repository")))
     )
   )
 }
